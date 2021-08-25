@@ -3,6 +3,8 @@
 namespace FFNLabs\Traiter\Commands;
 
 use Illuminate\Console\Command;
+use ReflectionClass;
+use FFNLabs\Traiter\Helpers\ModelStubber;
 
 class MakeTraiterCommand extends Command
 {
@@ -11,7 +13,9 @@ class MakeTraiterCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:traiter';
+    protected $signature = 'make:traiter 
+                        {class: The full name of the class, including namespace - separated with double-backslashes. }
+                        ';
 
     /**
      * The console command description.
@@ -37,6 +41,15 @@ class MakeTraiterCommand extends Command
      */
     public function handle(string $class)
     {
-        return 0;
+
+        $rc = new ModelStubber($class);
+        if ($rc) 
+        {
+            $rc->generate();
+            $this->info("Success!");
+        } else {
+            $this->error("Class not found.");
+        }
+
     }
 }

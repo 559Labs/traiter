@@ -4,20 +4,25 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ffnlabs/traiter.svg?style=flat-square)](https://packagist.org/packages/ffnlabs/traiter)
 ![GitHub Actions](https://github.com/ffnlabs/traiter/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require ffnlabs/traiter
+composer require ffnlabs/traiter --dev
 ```
 
 ## Usage
 
 ```php
-// Usage description here
+php artisan make:traiter App\\Models\\ModelName
+```
+
+...or, within PHP or Tinker:
+
+```php
+$stubber = new FFNLabs\Traiter\ModelStubber(App\Models\ModelName::class);
+$stubber->generate();
 ```
 
 ### Testing
