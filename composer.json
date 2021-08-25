@@ -1,6 +1,6 @@
 {
     "name": "ffnlabs/traiter",
-    "description": "",
+    "description": "A development tool to generate traits on a model to better organize your Laravel model code.",
     "keywords": [
         "ffnlabs",
         "traiter"
